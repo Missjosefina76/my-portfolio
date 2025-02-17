@@ -1,165 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" class="">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo Lamontagne | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <title>Time Management</title>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Jo Lamontagne</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <link type="text/css" rel="stylesheet" href="lib/icomoon.css">
-    <script type="text/javascript" src="lib/player-0.0.11.min.js"></script>
-    <script type="text/javascript" src="lib/lzwcompress.js"></script>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Instructional Designer | Digital Learning Strategist | AI Enthusiast</p>
+        <button id="ctaButton">Explore My Work</button>
+    </header>
 
-    <!-- Resize Hack -->
-    <script type="text/javascript">
-      window.resizeTo(screen.width, screen.height);
-    </script>
-    
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I'm an experienced instructional designer with expertise in AI-driven learning solutions, digital content 
+            creation, and user experience design. Passionate about making learning accessible and engaging!
+        </p>
+    </section>
 
-    <script id="__ENTRY__" type="application/json">
-      {".js":["rise/588ba7c5.js"]}
-    </script>
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>My eLearning Work</h2>
+        <p>Check out my instructional design projects:</p>
 
-    <script id="__REMOTE_ENTRIES__" type="application/json">
-      {"mondrian":{".js":["mondrian/entry.js"]}}
-    </script>
+        <!-- Embedded YouTube Video -->
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/@imagimontltd4930" 
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
 
-    <script>
-      (function() {
-        const jsonp = {}
+        <!-- Button to Open eLearning Course -->
+    <a href="https://Missjosefina76.github.io/Lego of Unconscious Bias index" 
+    target="_blank" class="btn">
+    View My Interactive eLearning Module
+ </a>
+</section>
 
-        function loadModule(manifest) {
-          const p = []
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Feel free to reach out to discuss potential collaborations.</p>
+        <button id="contactButton">Contact Me</button>
 
-          if (manifest['.css'] != null) {
-            for (var idx = 0; idx < manifest['.css'].length; idx++) {
-              p.push(new Promise((resolve, reject) => {
-                var link = document.createElement('link')
-                link.onload = resolve
-                link.onerror = reject
-                link.rel = 'stylesheet'
-                link.href = 'lib/' + manifest['.css'][idx]
-                document.body.appendChild(link)
-              }))
-            }
-          }
+        <!-- Email Address -->
+    <p>Email: <a href="mailto:info@imagimont.com">info@imagimont.com</a></p>
 
-          if (manifest['.js'] != null) {
-            for (var idx = 0; idx < manifest['.js'].length; idx++) {
-              p.push(new Promise((resolve, reject) => {
-                var script = document.createElement('script')
-                script.onload = resolve
-                script.onerror = reject
-                script.src = 'lib/' + manifest['.js'][idx]
-                document.body.appendChild(script)
-              }))
-            }
-          }
+    <!-- LinkedIn and YouTube Links -->
+    <p>
+        <a href="https://www.linkedin.com/in/jo-lamontagne-digitallearning/" target="_blank">LinkedIn Profile</a> | 
+        <a href="https://www.youtube.com/@imagimontltd4930" target="_blank">YouTube Channel</a>
+    </p>
+    </section>
 
-          return Promise.all(p)
-        }
-
-        function deserialize(str) {
-          const buffer = Uint8Array.from(atob(str), c => c.charCodeAt(0))
-          const json = new TextDecoder().decode(buffer)
-          const result = JSON.parse(json)
-          return result
-        }
-
-        function __loadEntry() {
-          return loadModule(JSON.parse(document.getElementById('__ENTRY__').textContent))
-        }
-
-        function __loadRemoteEntry(name) {
-          const manifest = JSON.parse(document.getElementById('__REMOTE_ENTRIES__').textContent)
-          if (manifest[name] == null) throw new Error(`Missing manifest for remote entry "${name}".`)
-          return loadModule(manifest[name])
-        }
-        
-        async function __loadJsonp(id, path) {
-          try {
-            return await new Promise((resolve, reject) => {
-              try {
-                jsonp[id] = resolve
-                const script = document.createElement('script')
-                script.onerror = reject
-                script.src = `./${path}`
-                document.head.appendChild(script)
-              } catch (err) {
-                reject(err)
-              }
-            })
-          } finally {
-            delete jsonp[id]
-          }
-        }
-
-        function __resolveJsonp(id, data) {
-          const resolve = jsonp[id]
-          if (typeof resolve !== 'function') {
-            throw new Error(`Could not load JSONP "${id}"`)
-          }
-          resolve(data)
-        }
-
-        async function __fetchCourse(name) {
-          name = name == null ? window.i18n.default : name
-          if (!window.i18n.available.includes(name)) {
-            console.warn(`Could not load locale "${name}"`)
-            name = window.i18n.available[0]
-          }
-          const encoded = await __loadJsonp(`course:${name}`, `locales/${name}.js`)
-          const courseData = deserialize(encoded)
-          return courseData
-        }
-
-        window.__loadEntry = __loadEntry
-        window.__loadRemoteEntry = __loadRemoteEntry
-        window.__loadJsonp = __loadJsonp
-        window.__resolveJsonp = __resolveJsonp
-        window.__fetchCourse = __fetchCourse
-      })()
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="text/javascript">
-  (function(root) {
-    window.i18n = {"available":["und"],"default":"und"};
-    window.partnerContent = [];
-
-    function isExport() {
-      return true;
-    }
-
-    function resolvePath(path) {
-      return ('assets/').concat(path);
-    }
-
-    function resolveFontPath(font) {
-      return ('lib/fonts/').concat(font.key.split('/').reverse()[0]);
-    }
-
-    function fetchAvailableLocales() {
-      return window.i18n
-    }
-
-    root.Runtime = {
-      fetch: window.__fetchCourse,
-      fetchAvailableLocales: fetchAvailableLocales,
-      isExport: isExport,
-      resolvePath: resolvePath,
-      resolveFontPath: resolveFontPath
-    };
-  }(window));
-</script>
-
-    
-    <script>__loadEntry()</script>
-    
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
