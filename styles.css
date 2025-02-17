@@ -59,6 +59,14 @@ section {
     text-align: center;
 }
 
+/* Left-align Core Expertise and below */
+.about-content {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto; /* Keeps it centered within the container */
+}
+
+
 /* Buttons */
 button {
     background-color: var(--secondary-color);
