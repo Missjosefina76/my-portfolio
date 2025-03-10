@@ -3,73 +3,149 @@
 
 /* Color Scheme */
 :root {
-    --primary-color: #514DAA; /* Dark Purple-Blue */
-    --secondary-color: #BB0973; /* Deep Pink */
-    --accent-color: #F31599; /* Bright Pink */
-    --background-color: #E6EEF0; /* Light Grayish Blue */
-    --text-color: #000000; /* Black */
+    --primary-color: #1E4598; /* Deep Blue */
+    --secondary-color: #E6EEF0; /* Light Grayish Blue */
+    --accent-color: #FFFFFF; /* White */
+    --text-color: #1E1E1E; /* Dark Gray */
 }
 
 /* Global Styles */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
 }
 
+/* Page Wrapper */
+#page {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background: url("images/hero-bg.jpg") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header img {
+    height: 80px;
+    width: auto;
+}
+
 /* Navigation */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--primary-color);
-    padding: 15px 30px;
-    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
-.nav-links {
+nav ul {
     list-style: none;
-    display: flex;
-    gap: 20px;
+    padding: 0;
 }
 
-.nav-links a {
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.nav-links a:hover {
-    color: var(--accent-color);
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
-/* Hero Section */
-.hero {
+/* Main Section */
+.main {
+    text-align: center;
+    padding: 50px;
     background-color: var(--secondary-color);
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
 }
 
-/* Sections */
-section {
-    padding: 60px 20px;
-    text-align: center;
+/* Aside Blocks */
+aside {
+    display: inline-block;
+    width: 30%;
+    padding: 15px;
+    margin: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    vertical-align: top;
 }
 
-/* Left-align Core Expertise and below */
-.about-content {
-    text-align: left;
+.content {
+    padding: 10px;
+}
+
+.content h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    text-align: center;
+    max-width: 300px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Testimonials */
+#testimonials {
+    text-align: center;
+    background-color: white;
+    padding: 50px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
-    margin: 0 auto; /* Keeps it centered within the container */
 }
 
+blockquote {
+    font-style: italic;
+    color: var(--primary-color);
+    margin: 20px auto;
+    max-width: 600px;
+}
 
-/* Buttons */
-button {
-    background-color: var(--secondary-color);
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 50px;
+}
+
+#contact button {
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -79,7 +155,28 @@ button {
     transition: background 0.3s ease-in-out;
 }
 
-button:hover {
-    background-color: var(--accent-color);
+#contact button:hover {
+    background-color: var(--text-color);
 }
 
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
